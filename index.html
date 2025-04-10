@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paper Vault - Main Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      transition: opacity 1s ease;
+    }
+
+    .logo {
+      width: 180px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      text-align: center;
+      max-width: 600px;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-button {
+      padding: 0.8rem 2rem;
+      background-color: #f7c948;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1e3c72;
+      cursor: pointer;
+      transition: 0.3s ease;
+      margin: 1rem;
+    }
+
+    .cta-button:hover {
+      background-color: #f0b429;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="logo.png" alt="Paper Vault Logo" class="logo">
+  <h1>Welcome to Paper Vault</h1>
+  <p>Your go-to source for Class X papers! Choose from previous years' papers and prelims to help you prepare.</p>
+  
+  <button class="cta-button" onclick="smoothRedirect('https://papervault.github.io/p/previous9')">Download Previous 9 Years Papers</button>
+  <button class="cta-button" onclick="smoothRedirect('https://papervault.github.io/p/previous2')">Download Previous 2 Years Prelim Papers</button>
+  
+  <footer>
+    Website by Arnav Thete | Sponsored by Pranav Ghaywat
+  </footer>
+
+  <script>
+    function smoothRedirect(url) {
+      document.body.style.opacity = 0;  // Fade out the body
+      setTimeout(function() {
+        window.location.href = url; // Redirect after fade-out
+      }, 1000);  // Wait 1 second before redirecting
+    }
+  </script>
+</body>
+</html>
