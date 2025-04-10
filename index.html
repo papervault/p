@@ -22,7 +22,7 @@
       align-items: center;
       justify-content: center;
       padding: 2rem;
-      transition: opacity 1s ease;
+      text-align: center;
     }
 
     .logo {
@@ -33,7 +33,6 @@
 
     h1 {
       font-size: 2.5rem;
-      text-align: center;
       margin-bottom: 1rem;
     }
 
@@ -45,16 +44,18 @@
     }
 
     .cta-button {
-      padding: 0.8rem 2rem;
+      padding: 1rem 2rem;
       background-color: #f7c948;
       border: none;
       border-radius: 8px;
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-weight: 600;
       color: #1e3c72;
       cursor: pointer;
-      transition: 0.3s ease;
       margin: 1rem;
+      width: 100%;
+      max-width: 300px;
+      transition: background-color 0.3s ease;
     }
 
     .cta-button:hover {
@@ -66,14 +67,35 @@
       bottom: 20px;
       font-size: 0.9rem;
       color: #ccc;
+      width: 100%;
+      text-align: center;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       h1 {
         font-size: 2rem;
       }
 
       p {
+        font-size: 1rem;
+      }
+
+      .cta-button {
+        width: 90%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo {
+        width: 150px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .cta-button {
+        padding: 0.8rem 1.5rem;
         font-size: 1rem;
       }
     }
@@ -85,20 +107,11 @@
   <h1>Welcome to Paper Vault</h1>
   <p>Your go-to source for Class X papers! Choose from previous years' papers and prelims to help you prepare.</p>
   
-  <button class="cta-button" onclick="smoothRedirect('https://papervault.github.io/p/previous9')">Download Previous 9 Years Papers</button>
-  <button class="cta-button" onclick="smoothRedirect('https://papervault.github.io/p/previous2')">Download Previous 2 Years Prelim Papers</button>
+  <button class="cta-button" onclick="window.location.href='https://papervault.github.io/p/9.html'">Download Previous 9 Years Papers</button>
+  <button class="cta-button" onclick="window.location.href='https://papervault.github.io/p/2p.html'">Download Previous 2 Years Prelim Papers</button>
   
   <footer>
     Website by Arnav Thete | Sponsored by Pranav Ghaywat
   </footer>
-
-  <script>
-    function smoothRedirect(url) {
-      document.body.style.opacity = 0;  // Fade out the body
-      setTimeout(function() {
-        window.location.href = url; // Redirect after fade-out
-      }, 1000);  // Wait 1 second before redirecting
-    }
-  </script>
 </body>
 </html>
