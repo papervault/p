@@ -64,8 +64,28 @@
       transition: background-color 0.3s ease;
     }
 
-    .cta-button:hover {
+    .cta-button:hover:enabled {
       background-color: #f0b429;
+    }
+
+    .cta-button:disabled {
+      background-color: #cccccc;
+      color: #666666;
+      cursor: not-allowed;
+    }
+
+    .announcement-box {
+      background-color: #ffeeba;
+      color: #5c3d00;
+      border: 1px solid #f0c36d;
+      padding: 1rem;
+      width: 100%;
+      max-width: 700px;
+      text-align: center;
+      font-size: 1rem;
+      margin-top: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     footer {
@@ -90,7 +110,7 @@
       }
 
       footer {
-        margin-top: 3rem; /* Add more space above the footer */
+        margin-top: 3rem;
       }
     }
 
@@ -109,13 +129,12 @@
       }
 
       footer {
-        font-size: 0.8rem; /* Make footer text slightly smaller */
+        font-size: 0.8rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Logo is being fetched from the root directory as 'logo.png' -->
   <img src="logo.png" alt="Paper Vault Logo" class="logo">
   <div class="since">Since 2024</div>
   <h1>Welcome to Paper Vault</h1>
@@ -123,7 +142,16 @@
   
   <button class="cta-button" onclick="window.location.href='https://papervault.github.io/cbse-x'">Download Previous 4 Years CBSE Papers</button>
   <button class="cta-button" onclick="window.location.href='https://papervault.github.io/prelims-hancbse/'">Download Previous 2 Years Prelim Papers</button>
-  
+
+  <button class="cta-button" disabled>
+    Sample Papers 2026<br><span style="font-size: 0.85rem;">(expected by September)</span>
+  </button>
+
+  <div class="announcement-box">
+    📢 <strong>CBSE has not yet released the official Sample Papers for 2026.</strong><br />
+    They are expected to be published by September and will be made available here promptly once released by CBSE.
+  </div>
+
   <footer>
     Website by Arnav Thete | Sponsored by Pranav Ghaywat
   </footer>
