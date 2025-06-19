@@ -178,10 +178,11 @@
     .visitor-counter-container {
       margin-top: 15px; /* Increase space above the counter */
       padding: 8px 15px; /* Add some padding */
-      background-color: rgba(255, 255, 255, 0.1); /* Slightly translucent white background */
+      background-color: rgba(255, 255, 255, 0.2); /* Slightly darker translucent background */
       border-radius: 8px; /* Rounded corners */
       display: inline-block; /* Allows it to be centered by text-align on parent */
       text-align: center; /* Centers the image within its div if it were larger */
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* Add a subtle shadow */
     }
 
     .visitor-counter-container img {
@@ -294,7 +295,9 @@
         
         chatHistory.push({ role: "user", parts: [{ text: prompt }] });
         const payload = { contents: chatHistory };
-        const apiKey = ""; // If you want to use models other than gemini-2.0-flash or imagen-3.0-generate-002, provide an API key here. Otherwise, leave this as-is.
+        // In the Canvas environment, leave apiKey empty to have it automatically provided.
+        // If running this code outside Canvas, you would need to provide a valid Gemini API Key here.
+        const apiKey = ""; 
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
         
         const response = await fetch(apiUrl, {
