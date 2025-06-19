@@ -175,7 +175,7 @@
       padding-top: 1rem; /* Added padding to separate content from footer text */
     }
 
-    .visitor-counter {
+    .visitor-counter-container {
       margin-top: 15px; /* Increase space above the counter */
       padding: 8px 15px; /* Add some padding */
       background-color: rgba(255, 255, 255, 0.1); /* Slightly translucent white background */
@@ -184,7 +184,7 @@
       text-align: center; /* Centers the image within its div if it were larger */
     }
 
-    .visitor-counter img {
+    .visitor-counter-container img {
         vertical-align: middle; /* Align image vertically to prevent extra space below */
     }
 
@@ -268,10 +268,9 @@
 
   <footer>
     Website by Arnav Thete | Sponsored by Pranav Ghaywat
-    <!-- Visitor counter added below -->
-    <div class="visitor-counter">
-      <a href="https://www.hitwebcounter.com" target="_blank">
-      <img src="https://hitwebcounter.com/counter/counter.php?page=20949542&style=0001&nbdigits=3&type=page&initCount=20" title="Counter Widget" Alt="Visit counter For Websites" border="0" /></a>          
+    <!-- New Visitor counter added below -->
+    <div class="visitor-counter-container">
+      <a href='https://www.simplehitcounter.com' target='_blank'><img src='https://www.simplehitcounter.com/hit.php?uid=2719230&f=16777215&c=000000&dig=5&lc=FFFFFF&cb=000000&v0=3&am=solid' border='0' alt='Web Counter'></a>
     </div>
   </footer>
 
@@ -304,6 +303,11 @@
           body: JSON.stringify(payload)
         });
         
+        if (!response.ok) {
+            const errorBody = await response.text();
+            throw new Error(`API error: ${response.status} ${response.statusText} - ${errorBody}`);
+        }
+
         const result = await response.json();
 
         if (result.candidates && result.candidates.length > 0 &&
@@ -312,11 +316,12 @@
           const text = result.candidates[0].content.parts[0].text;
           questionResults.innerText = text;
         } else {
-          questionResults.innerText = "Could not generate questions. Please try again or with a different topic.";
+          questionResults.innerText = "Could not generate questions. The API response was unexpected. Please try again or with a different topic.";
+          console.warn("Unexpected API response structure:", result);
         }
       } catch (error) {
         console.error("Error generating questions:", error);
-        questionResults.innerText = "An error occurred while generating questions. Please try again.";
+        questionResults.innerText = `An error occurred while generating questions. Please try again. Error details: ${error.message}`;
       } finally {
         loadingSpinner.style.display = 'none'; // Hide spinner
       }
