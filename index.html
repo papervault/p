@@ -88,12 +88,104 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
+    .ai-section {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 10px;
+      margin-top: 3rem;
+      width: 90%;
+      max-width: 700px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .ai-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: #f7c948;
+    }
+
+    .ai-input-group {
+      display: flex;
+      flex-wrap: wrap; /* Allows wrapping on smaller screens */
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ai-section input[type="text"] {
+      flex-grow: 1; /* Allows input to take available space */
+      padding: 0.8rem;
+      border: 1px solid #f7c948;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #1e3c72;
+      font-size: 1rem;
+      margin-right: 15px; /* Increased margin for larger screens */
+      min-width: 200px; /* Ensure input doesn't get too small */
+    }
+
+    .ai-section button {
+      padding: 0.8rem 1.5rem;
+      background-color: #f7c948;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1e3c72;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .ai-section button:hover {
+      background-color: #f0b429;
+    }
+
+    .ai-results {
+      margin-top: 1.5rem;
+      text-align: left;
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem;
+      border-radius: 8px;
+      min-height: 100px; /* Ensure some visibility even when empty */
+      white-space: pre-wrap; /* Preserve whitespace and line breaks */
+      font-size: 1rem;
+    }
+
+    .loading-spinner {
+        border: 4px solid #f3f3f3; /* Light grey */
+        border-top: 4px solid #f7c948; /* Yellow */
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+        display: none; /* Hidden by default */
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
     footer {
       font-size: 0.9rem;
       color: #ccc;
       width: 100%;
       text-align: center;
       margin-top: 2rem;
+      padding-top: 1rem; /* Added padding to separate content from footer text */
+    }
+
+    .visitor-counter {
+      margin-top: 15px; /* Increase space above the counter */
+      padding: 8px 15px; /* Add some padding */
+      background-color: rgba(255, 255, 255, 0.1); /* Slightly translucent white background */
+      border-radius: 8px; /* Rounded corners */
+      display: inline-block; /* Allows it to be centered by text-align on parent */
+      text-align: center; /* Centers the image within its div if it were larger */
+    }
+
+    .visitor-counter img {
+        vertical-align: middle; /* Align image vertically to prevent extra space below */
     }
 
     @media (max-width: 768px) {
@@ -107,6 +199,15 @@
 
       .cta-button {
         width: 90%;
+      }
+
+      .ai-section input[type="text"] {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 15px; /* Added margin-bottom when stacked */
+      }
+      .ai-section button {
+        width: 100%;
       }
 
       footer {
@@ -135,7 +236,7 @@
   </style>
 </head>
 <body>
-  <img src="logo.png" alt="Paper Vault Logo" class="logo">
+  <img src="https://raw.githubusercontent.com/papervault/vault/refs/heads/main/logo.png" alt="Paper Vault Logo" class="logo">
   <div class="since">Since 2024</div>
   <h1>Welcome to Paper Vault</h1>
   <p>Your go-to source for Class X papers! Choose from previous years' papers and prelims to help you prepare.</p>
@@ -152,8 +253,74 @@
     They are expected to be published by September and will be made available here promptly once released by CBSE.
   </div>
 
+  <div class="ai-section">
+    <h2>✨ AI Question Generator</h2>
+    <p>Enter a topic to get practice questions:</p>
+    <div class="ai-input-group">
+      <input type="text" id="topicInput" placeholder="e.g., Algebra, French Revolution, Acids and Bases">
+      <button onclick="generateQuestions()">Generate Questions</button>
+    </div>
+    <div class="loading-spinner" id="loadingSpinner"></div>
+    <div class="ai-results" id="questionResults">
+      <!-- Generated questions will appear here -->
+    </div>
+  </div>
+
   <footer>
     Website by Arnav Thete | Sponsored by Pranav Ghaywat
+    <!-- Visitor counter added below -->
+    <div class="visitor-counter">
+      <a href="https://www.hitwebcounter.com" target="_blank">
+      <img src="https://hitwebcounter.com/counter/counter.php?page=20949542&style=0001&nbdigits=3&type=page&initCount=20" title="Counter Widget" Alt="Visit counter For Websites" border="0" /></a>          
+    </div>
   </footer>
+
+  <script>
+    async function generateQuestions() {
+      const topicInput = document.getElementById('topicInput').value;
+      const questionResults = document.getElementById('questionResults');
+      const loadingSpinner = document.getElementById('loadingSpinner');
+
+      if (!topicInput.trim()) {
+        questionResults.innerText = "Please enter a topic to generate questions.";
+        return;
+      }
+
+      questionResults.innerText = ""; // Clear previous results
+      loadingSpinner.style.display = 'block'; // Show spinner
+
+      try {
+        let chatHistory = [];
+        const prompt = `Generate 5-7 practice questions for a Class X student on the topic of "${topicInput}". The questions should be varied in difficulty and cover different aspects of the topic. Format them as a numbered list.`;
+        
+        chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+        const payload = { contents: chatHistory };
+        const apiKey = ""; // If you want to use models other than gemini-2.0-flash or imagen-3.0-generate-002, provide an API key here. Otherwise, leave this as-is.
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+        
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        
+        const result = await response.json();
+
+        if (result.candidates && result.candidates.length > 0 &&
+            result.candidates[0].content && result.candidates[0].content.parts &&
+            result.candidates[0].content.parts.length > 0) {
+          const text = result.candidates[0].content.parts[0].text;
+          questionResults.innerText = text;
+        } else {
+          questionResults.innerText = "Could not generate questions. Please try again or with a different topic.";
+        }
+      } catch (error) {
+        console.error("Error generating questions:", error);
+        questionResults.innerText = "An error occurred while generating questions. Please try again.";
+      } finally {
+        loadingSpinner.style.display = 'none'; // Hide spinner
+      }
+    }
+  </script>
 </body>
 </html>
