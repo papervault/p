@@ -88,17 +88,15 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    /* AI section styles are now removed or commented out */
-
     .loading-spinner {
-        border: 4px solid #f3f3f3; /* Light grey */
-        border-top: 4px solid #f7c948; /* Yellow */
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #f7c948;
         border-radius: 50%;
         width: 30px;
         height: 30px;
         animation: spin 1s linear infinite;
         margin: 20px auto;
-        display: none; /* Hidden by default */
+        display: none;
     }
 
     @keyframes spin {
@@ -112,21 +110,38 @@
       width: 100%;
       text-align: center;
       margin-top: 2rem;
-      padding-top: 1rem; /* Added padding to separate content from footer text */
+      padding-top: 1rem;
     }
 
     .visitor-counter-container {
-      margin-top: 15px; /* Increase space above the counter */
-      padding: 8px 15px; /* Add some padding */
-      background-color: rgba(255, 255, 255, 0.2); /* Slightly darker translucent background */
-      border-radius: 8px; /* Rounded corners */
-      display: inline-block; /* Allows it to be centered by text-align on parent */
-      text-align: center; /* Centers the image within its div if it were larger */
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* Add a subtle shadow */
+      margin-top: 15px;
+      padding: 8px 15px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      display: inline-block;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     .visitor-counter-container img {
-        vertical-align: middle; /* Align image vertically to prevent extra space below */
+        vertical-align: middle;
+    }
+
+    .old-version-link {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: #aaa;
+      text-align: center;
+    }
+
+    .old-version-link a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .old-version-link a:hover {
+      text-decoration: underline;
+      color: #eee;
     }
 
     @media (max-width: 768px) {
@@ -187,12 +202,14 @@
 
   <footer>
     Website by Arnav Thete | Sponsored by Pranav Ghaywat
-    <!-- New Visitor counter added below -->
     <div class="visitor-counter-container">
       <a href='https://www.simplehitcounter.com' target='_blank'><img src='https://www.simplehitcounter.com/hit.php?uid=2719230&f=16777215&c=000000&dig=5&lc=FFFFFF&cb=000000&v0=3&am=solid' border='0' alt='Web Counter'></a>
     </div>
   </footer>
 
-  <!-- The script for generateQuestions() has been removed -->
+  <!-- Dull old version button below footer -->
+  <div class="old-version-link">
+    <a href="https://papervault.github.io/main/">Looking for Old Paper Vault Version 2024? Click here to go to old version</a>
+  </div>
 </body>
 </html>
