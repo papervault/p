@@ -171,11 +171,19 @@
   <h1>Welcome to Paper Vault</h1>
   <p>Your go-to source for Class X papers! Choose from previous years' papers and prelims to help you prepare.</p>
   
+  <!-- New Tentative Datesheet Button -->
+  <button class="cta-button" onclick="downloadDatesheet()">
+    Download Tentative Datesheet 2026 <br><span class="flashing-new">(NEW)</span>
+  </button>
+
+  <!-- Extra spacing -->
+  <div style="margin-bottom: 10px;"></div>
+
   <button class="cta-button" onclick="window.location.href='https://papervault.github.io/cbse-x'">Download Previous 4 Years CBSE Papers</button>
   <button class="cta-button" onclick="window.location.href='https://papervault.github.io/prelims-hancbse/'">Download Previous 2 Years Prelim Papers</button>
 
   <button class="cta-button" onclick="window.location.href='https://papervault.github.io/sqp/'">
-    Sample Papers 2025-26 <br><span class="flashing-new">(NEW)</span>
+    Sample Papers 2025-26
   </button>
 
   <footer>
@@ -186,5 +194,16 @@
   <div class="old-version-link">
     <a href="https://papervault.github.io/main/">Looking for Old Paper Vault Version 2024? Click here to go to old version</a>
   </div>
+
+  <script>
+    function downloadDatesheet() {
+      const link = document.createElement('a');
+      link.href = 'datesheet/tdatesheet.pdf';
+      link.download = 'tdatesheet.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
 </body>
 </html>
