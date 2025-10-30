@@ -171,9 +171,9 @@
   <h1>Welcome to Paper Vault</h1>
   <p>Your go-to source for Class X papers! Choose from previous years' papers and prelims to help you prepare.</p>
   
-  <!-- New Tentative Datesheet Button -->
+  <!-- Updated Final Datesheet Button -->
   <button class="cta-button" onclick="downloadDatesheet()">
-    Download Tentative Datesheet 2026 <br><span class="flashing-new">(NEW)</span>
+    [DATESHEET] Download Final CBSE 2026 Datesheet <br><span class="flashing-new">(NEW)</span>
   </button>
 
   <!-- Extra spacing -->
@@ -198,8 +198,8 @@
   <script>
     function downloadDatesheet() {
       const link = document.createElement('a');
-      link.href = 'datesheet/tdatesheet.pdf';
-      link.download = 'tdatesheet.pdf';
+      link.href = 'datesheet/cbsedatesheet.pdf';
+      link.download = 'cbsedatesheet.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
