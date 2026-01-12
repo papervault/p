@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paper Vault - Main Page</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .logo {
+      width: 180px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    .since {
+      font-size: 1rem;
+      color: #ccc;
+      margin-top: 0.5rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      max-width: 600px;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: #f7c948;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1e3c72;
+      text-decoration: none;
+      cursor: pointer;
+      margin: 0.6rem 0;
+      width: 100%;
+      max-width: 300px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #f0b429;
+    }
+
+    .flashing-new {
+      font-size: 0.85rem;
+      color: red;
+      animation: flash 1s infinite;
+    }
+
+    @keyframes flash {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .trust-note {
+      font-size: 0.9rem;
+      color: #ddd;
+      margin-top: 1rem;
+      max-width: 650px;
+    }
+
+    footer {
+      font-size: 0.9rem;
+      color: #ccc;
+      width: 100%;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .old-version-link {
+      margin-top: 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .old-version-link a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .old-version-link a:hover {
+      text-decoration: underline;
+      color: #eee;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      p { font-size: 1rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Host logo locally if possible -->
+  <img src="logo.png" alt="Paper Vault Logo" class="logo">
+
+  <div class="since">Since 2024</div>
+
+  <h1>Welcome to Paper Vault</h1>
+
+  <p>
+    Your go-to source for Class X papers!  
+    Access previous years’ papers, prelims, and sample papers to prepare better.
+  </p>
+
+  <!-- TRUST NOTE FOR GOOGLE -->
+  <div class="trust-note">
+    This is a student-made educational website.  
+    We do not collect personal data, require logins, or run ads.
+  </div>
+
+  <!-- SAFE PDF VIEW LINK -->
+  <a class="cta-button" href="datesheet/cbsedatesheet.pdf" target="_blank">
+    [DATESHEET] View CBSE 2026 Datesheet<br>
+    <span class="flashing-new">(NEW)</span>
+  </a>
+
+  <a class="cta-button" href="https://papervault.github.io/cbse-x">
+    Download Previous 4 Years CBSE Papers
+  </a>
+
+  <a class="cta-button" href="https://papervault.github.io/prelims-hancbse/">
+    Download Previous 2 Years Prelim Papers
+  </a>
+
+  <a class="cta-button" href="https://papervault.github.io/sqp/">
+    Sample Papers 2025–26
+  </a>
+
+  <footer>
+    Website by Arnav Thete | Crafted with love
+  </footer>
+
+  <div class="old-version-link">
+    <a href="https://papervault.github.io/main/">
+      Looking for the old Paper Vault (2024)? Click here
+    </a>
+  </div>
+
+</body>
+</html>
