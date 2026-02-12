@@ -2,11 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="google-site-verification" content="E91GeJlttVxSIdhoqyhjN9JZDe05dkHox5Mjz5BLpzc"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Paper Vault - Main Page</title>
+  <meta name="google-site-verification" content="E91GeJlttVxSIdhoqyhjN9JZDe05dkHox5Mjz5BLpzc"/>
+  <title>Paper Vault – Class X Study Resources</title>
+  <meta name="description" content="Paper Vault provides Class X previous year papers, prelim papers, and sample papers for educational use. No login required. No ads.">
 
-  <!-- Google Fonts -->
+  <!-- Basic Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -30,41 +34,33 @@
     }
 
     .logo {
-      width: 180px;
-      height: auto;
+      width: 160px;
       margin-bottom: 1rem;
     }
 
-    .since {
-      font-size: 1rem;
-      color: #ccc;
-      margin-top: 0.5rem;
-    }
-
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       margin-bottom: 1rem;
     }
 
     p {
-      max-width: 600px;
-      font-size: 1.1rem;
+      max-width: 650px;
+      font-size: 1rem;
       margin-bottom: 1.5rem;
     }
 
     .cta-button {
       display: inline-block;
-      padding: 1rem 2rem;
+      padding: 1rem 1.5rem;
       background-color: #f7c948;
       border-radius: 8px;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 600;
       color: #1e3c72;
       text-decoration: none;
-      cursor: pointer;
-      margin: 0.6rem 0;
+      margin: 0.5rem 0;
       width: 100%;
-      max-width: 300px;
+      max-width: 320px;
       transition: background-color 0.3s ease;
     }
 
@@ -72,101 +68,72 @@
       background-color: #f0b429;
     }
 
-    .flashing-new {
-      font-size: 0.85rem;
-      color: red;
-      animation: flash 1s infinite;
-    }
-
-    @keyframes flash {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-
-    .trust-note {
+    .info-note {
       font-size: 0.9rem;
       color: #ddd;
       margin-top: 1rem;
-      max-width: 650px;
+      max-width: 700px;
     }
 
     footer {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: #ccc;
-      width: 100%;
-      text-align: center;
       margin-top: 2rem;
     }
 
-    .old-version-link {
-      margin-top: 1.2rem;
-      font-size: 0.9rem;
-    }
-
-    .old-version-link a {
+    footer a {
       color: #ccc;
-      text-decoration: none;
-    }
-
-    .old-version-link a:hover {
       text-decoration: underline;
-      color: #eee;
     }
 
     @media (max-width: 768px) {
-      h1 { font-size: 2rem; }
-      p { font-size: 1rem; }
+      h1 { font-size: 1.8rem; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Host logo locally if possible -->
   <img src="logo.webp" alt="Paper Vault Logo" class="logo">
 
-  <div class="since">Since 2024</div>
-
-  <h1>Welcome to Paper Vault</h1>
+  <h1>Paper Vault – Class X Study Materials</h1>
 
   <p>
-    Your go-to source for Class X papers!  
-    Access previous years’ papers, prelims, and sample papers to prepare better.
+    Paper Vault is a student-created educational website providing previous year papers,
+    prelim papers, and sample papers for Class X students.
   </p>
 
-  <!-- TRUST NOTE FOR GOOGLE -->
-  <div class="trust-note">
-    This is a student-made educational website.  
-    We do not collect personal data, require logins, or run ads.
+  <div class="info-note">
+    ✔ No login required <br>
+    ✔ No advertisements <br>
+    ✔ No data collection <br>
+    ✔ Direct PDF access only
   </div>
 
-  <!-- SAFE PDF VIEW LINK -->
-  <a class="cta-button" href="datesheet/cbsedatesheet.pdf" target="_blank">
-    [DATESHEET] View CBSE 2026 Datesheet<br>
-    <span class="flashing-new">(NEW)</span>
+  <!-- Clear file type and behavior -->
+  <a class="cta-button" href="datesheet/cbsedatesheet.pdf">
+    View CBSE 2026 Datesheet (PDF File)
   </a>
 
   <a class="cta-button" href="https://papervault.github.io/cbse-x">
-    Download Previous 4 Years CBSE Papers
+    Previous 4 Years CBSE Papers (PDF Collection)
   </a>
 
   <a class="cta-button" href="https://papervault.github.io/prelims-hancbse/">
-    Download Previous 2 Years Prelim Papers
+    Previous 2 Years Prelim Papers (PDF Collection)
   </a>
 
   <a class="cta-button" href="https://papervault.github.io/sqp/">
-    Sample Papers 2025–26
+    Sample Papers 2025–26 (PDF Collection)
   </a>
 
   <footer>
-    Website by Arnav Thete | Crafted with love
+    Created by Arnav Thete | Since 2024 <br><br>
+    This website is independently created for educational purposes only.
+    <br><br>
+    <a href="/privacy.html">Privacy Policy</a> |
+    <a href="/contact.html">Contact</a>
   </footer>
-
-  <div class="old-version-link">
-    <a href="https://papervault.github.io/main/">
-      Looking for the old Paper Vault (2024)? Click here
-    </a>
-  </div>
 
 </body>
 </html>
